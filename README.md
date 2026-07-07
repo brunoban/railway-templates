@@ -13,7 +13,7 @@ the upstream project actually recommends, not single-container demos.
 | [**Keep**](keep/) | 🚧 scaffold ready | AIOps / alert management, 4 services: backend + frontend + Soketi + Postgres, DB auth on |
 | [**Laminar**](laminar/) | 🚧 scaffold ready | LLM/agent observability, 6 services: frontend + app-server + Postgres + ClickHouse + RabbitMQ + Quickwit |
 | [**Nhost**](nhost/) | 🚧 scaffold ready | Firebase-style BaaS, 6 services: Hasura + auth + storage + MinIO + dashboard + Postgres |
-| **HertzBeat** | 📋 planned | Monitoring & alerting: app + Postgres + VictoriaMetrics |
+| [**HertzBeat**](hertzbeat/) | 🚧 scaffold ready | Monitoring & alerting (Apache HertzBeat™ 1.8.0), 3 services: app + Postgres + VictoriaMetrics |
 
 ## Design principles
 

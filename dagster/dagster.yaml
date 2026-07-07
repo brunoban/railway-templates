@@ -1,0 +1,21 @@
+# Dagster instance config — shared by webserver, daemon, and code server.
+# All run/event/schedule state lives in Postgres (DAGSTER_PG_URL), so the
+# containers themselves are stateless and safe to redeploy.
+
+storage:
+  postgres:
+    postgres_url:
+      env: DAGSTER_PG_URL
+
+# Runs submitted from the UI are queued and dequeued by the daemon.
+# The (default) run launcher then executes each run on the code-location
+# server — deliberately NOT DockerRunLauncher, which needs a Docker socket
+# that platform containers don't have.
+run_coordinator:
+  module: dagster.core.run_coordinator
+  class: QueuedRunCoordinator
+  config:
+    max_concurrent_runs: 2
+
+telemetry:
+  enabled: false

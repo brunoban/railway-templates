@@ -1,0 +1,12 @@
+# Dagster resolves fresh at image build time; pin exact versions if you fork
+# this for production.
+dagster
+dagster-webserver
+dagster-postgres
+
+# REQUIRED pin: dagster requires protobuf<7, but grpcio-health-checking >=1.81
+# ships gencode built with protobuf 7.x and crashes at import with a protobuf-6
+# runtime ("Detected incompatible Protobuf Gencode/Runtime versions").
+# Verified good: 1.80.0 + protobuf 6.33.x. Verified broken: 1.82.0.
+grpcio<1.81
+grpcio-health-checking<1.81
